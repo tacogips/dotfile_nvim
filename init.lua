@@ -1,0 +1,5 @@
+require("settings")
+require("plugins")
+require("plugins.lsp")
+require("keybinds")
+require("ft")
