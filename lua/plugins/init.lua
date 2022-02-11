@@ -144,6 +144,8 @@ require("packer").startup(function()
 		end,
 	})
 
+	use("ron-rs/ron.vim")
+
 	-- ====== terraform ====
 	use("hashivim/vim-terraform")
 
