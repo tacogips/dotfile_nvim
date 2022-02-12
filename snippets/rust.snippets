@@ -3,12 +3,38 @@ snippet fn "Function definition"
 		${0}
 	}
 
+
+snippet ddb "#[derive(Debug)]"
+	#[derive(Debug)]
+
+snippet st "struct XXX{}"
+	pub struct ${1:func_name}{
+	}
+
 snippet ppp "println!(...)"
 	println!("{}",${1:function_name});
 
 
 snippet dbp "(debug) println!(...)"
 	//TODO(tacogips) for debugging
-	println!("==== {}",${1:function_name});
+	println!("==== {:?}",${1:function_name});
 
+
+
+snippet ctest "$[cfg(test)]"
+	#[cfg(test)]
+	mod test {
+		${1:funcs}
+	}
+
+
+snippet test "#[test]"
+	#[test]
+	fn test_${1:func_name}(){
+	}
+
+snippet atest "#[test]"
+	#[tokio:test]
+	async fn test_${1:func_name}(){
+	}
 
