@@ -89,7 +89,6 @@ require("packer").startup(function()
 	use("thinca/vim-quickrun")
 
 	use("tpope/vim-endwise")
-	use("tpope/vim-fugitive")
 	use("tpope/vim-surround")
 
 	-- ==== tree ==============
@@ -102,6 +101,15 @@ require("packer").startup(function()
 		},
 		config = function()
 			require("plugins.nvim-tree")
+		end,
+	})
+
+	-- ==== jump to github ==============
+	use({
+		"tacogips/jump_to_github.nvim",
+
+		config = function()
+			require("jump_to_github").setup({})
 		end,
 	})
 
@@ -181,9 +189,6 @@ require("packer").startup(function()
 
 	-- ======= jinja2
 	use("Glench/Vim-Jinja2-Syntax")
-
-	-- ======= jump to github code
-	use({ "tacogips/jump_to_github.nvim", run = ":UpdateRemoteuseins" })
 
 	-- ======= draw rectangle with ascii char
 	use("jbyuki/venn.nvim")
