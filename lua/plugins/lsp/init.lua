@@ -6,6 +6,7 @@ local julia_ls = require("plugins.lsp.julia")
 local go_ls = require("plugins.lsp.go")
 local python_ls = require("plugins.lsp.python")
 local typescript_lsp = require("plugins.lsp.typescript")
+local lua_lsp = require("plugins.lsp.lua")
 
 local nvim_lsp = require("lspconfig")
 local servers = {
@@ -15,6 +16,7 @@ local servers = {
 	go_ls,
 	python_ls,
 	typescript_lsp,
+	lua_lsp,
 }
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())

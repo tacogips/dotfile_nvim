@@ -1,3 +1,3 @@
-local name = java_language_server
+local name = "java_language_server"
 require("lspconfig")[name].setup({})
 return name
