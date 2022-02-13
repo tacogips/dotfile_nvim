@@ -1,6 +1,6 @@
---install  of
--- lua-language-server
---https://archlinux.org/packages/community/x86_64/lua-language-server/
+---install  of
+--- lua-language-server
+---https://archlinux.org/packages/community/x86_64/lua-language-server/
 
 local name = "sumneko_lua"
 
@@ -32,5 +32,4 @@ require("lspconfig")[name].setup({
 		},
 	},
 })
-
 return name

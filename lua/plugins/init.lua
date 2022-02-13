@@ -41,6 +41,7 @@ require("packer").startup(function()
 	--	run = ":TSUpdate",
 	--})
 	-- ======= build in LSP ===========================
+
 	use("neovim/nvim-lspconfig")
 	use("nvim-lua/lsp_extensions.nvim")
 
@@ -186,9 +187,6 @@ require("packer").startup(function()
 
 	-- ======= draw rectangle with ascii char
 	use("jbyuki/venn.nvim")
-
-	-- ======= lua
-	use("tjdevries/nlua.nvim")
 
 	-- ======= completion and snippets ===================
 	use({
