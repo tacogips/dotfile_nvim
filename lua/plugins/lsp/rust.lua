@@ -1,16 +1,18 @@
+local lsp_util = require("plugins.lsp.lsp_util")
 local name = "rust_analyzer"
-require("lspconfig")[name].setup({
+
+lsp_util:setup_lsp(name, {
 	settings = {
 		["rust-analyzer"] = {
 			checkOnSave = {
-				overrideCommand = {
-					"cargo",
-					"clippy",
-					"--workspace",
-					"--message-format=json",
-					"--all-targets",
-					"--all-features",
-				},
+				--overrideCommand = {
+				--	"cargo",
+				--	"clippy",
+				--	"--workspace",
+				--	"--message-format=json",
+				--	"--all-targets",
+				--	"--all-features",
+				--},
 			},
 			procMacro = {
 				enable = true,
@@ -25,4 +27,3 @@ require("lspconfig")[name].setup({
 		},
 	},
 })
-return name

@@ -1,3 +1,3 @@
+local lsp_util = require("plugins.lsp.lsp_util")
 local name = "java_language_server"
-require("lspconfig")[name].setup({})
-return name
+lsp_util:setup_lsp(name, {})

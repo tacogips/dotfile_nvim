@@ -1,5 +1,5 @@
 require("settings")
+require("keybinds")
 require("plugins")
 require("plugins.lsp")
-require("keybinds")
 require("ft")

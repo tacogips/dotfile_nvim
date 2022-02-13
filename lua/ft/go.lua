@@ -2,7 +2,6 @@ local cmd = vim.cmd
 local g = vim.g
 
 cmd([[
-	au FileType go nmap .f <ESC>:ALEFix<CR>
 	au FileType go nmap .r <ESC>:GoRun<CR>
 	au FileType go nmap .b <ESC>:GoBuild<CR>
 	au FileType go nmap .t <ESC>:GoTest<CR>

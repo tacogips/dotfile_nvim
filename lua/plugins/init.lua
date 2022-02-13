@@ -12,14 +12,6 @@ require("packer").startup(function()
 				require("plugins.telescope")
 			end,
 		},
-		{
-			"nvim-telescope/telescope-frecency.nvim",
-			after = "telescope.nvim",
-			config = function()
-				require("telescope").load_extension("frecency")
-			end,
-			requires = { "tami5/sqlite.lua" },
-		},
 
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
@@ -36,14 +28,40 @@ require("packer").startup(function()
 	})
 
 	-- ======= syntax ===========================
-	--use({
-	--	"nvim-treesitter/nvim-treesitter",
-	--	run = ":TSUpdate",
-	--})
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		config = function()
+			require("plugins.treesitter")
+		end,
+	})
+
+	use({
+		"IndianBoy42/tree-sitter-just",
+		config = function()
+			require("tree-sitter-just").setup({})
+		end,
+	})
 	-- ======= build in LSP ===========================
 
 	use("neovim/nvim-lspconfig")
 	use("nvim-lua/lsp_extensions.nvim")
+
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("null-ls")
+		end,
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+
+	use({
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		config = function()
+			require("plugins.fidget")
+		end,
+	})
 
 	--==== plant uml ================
 	use("aklt/plantuml-syntax")
@@ -72,11 +90,18 @@ require("packer").startup(function()
 		end,
 	})
 
-	-- ==== tab =====================
-	use("liuchengxu/vista.vim")
+	--  === mermaid ===
+	use("mracos/mermaid.vim")
 
-	-- error from 2022/1/5
-	--use 'millermedeiros/vim-esformatter'
+	-- ==== tab =====================
+	use({
+		"stevearc/aerial.nvim",
+
+		requires = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("plugins.aerial")
+		end,
+	})
 
 	-- editorconfig
 	use("editorconfig/editorconfig-vim")
@@ -89,7 +114,6 @@ require("packer").startup(function()
 	use("thinca/vim-quickrun")
 
 	use("tpope/vim-endwise")
-	use("tpope/vim-fugitive")
 	use("tpope/vim-surround")
 
 	-- ==== tree ==============
@@ -102,6 +126,25 @@ require("packer").startup(function()
 		},
 		config = function()
 			require("plugins.nvim-tree")
+		end,
+	})
+
+	-- ==== jump to github ==============
+	use({
+		"tacogips/jump_to_github.nvim",
+
+		requires = { { "nvim-lua/plenary.nvim" } },
+		config = function()
+			require("jump_to_github").setup({
+				open_browser = "firefox",
+			})
+		end,
+	})
+
+	use({
+		"f-person/git-blame.nvim",
+		config = function()
+			require("plugins.git-blame")
 		end,
 	})
 
@@ -118,23 +161,22 @@ require("packer").startup(function()
 	use("chr4/nginx.vim")
 
 	-- ====== lint/fix ====
-	use("w0rp/ale")
+	use({
+		"mhartington/formatter.nvim",
+		config = function()
+			require("plugins.formatter")
+		end,
+	})
 
 	-- === svelt ==============================
 	use("evanleck/vim-svelte")
 
-	--" typescript language server
-
 	-- ====== browse js ====
-	use({ "tacogips/browsejs.nvim", run = ":UpdateRemoteuseins" })
+	--use({ "tacogips/browsejs.nvim", run = ":UpdateRemoteuseins" })
 
 	use("w0ng/vim-hybrid")
 
 	use("dart-lang/dart-vim-plugin")
-
-	-- authomated ctags not needed
-	--use 'ludovicchabant/vim-gutentags'
-	--
 
 	--" ==== rust ===========================================
 	use("rust-lang/rust.vim")
@@ -145,14 +187,46 @@ require("packer").startup(function()
 		end,
 	})
 
-	use("ron-rs/ron.vim")
+	use({
+		"saecki/crates.nvim",
+		event = { "BufRead Cargo.toml" },
+		requires = { { "nvim-lua/plenary.nvim" } },
+		config = function()
+			require("crates")
+		end,
+	})
+
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("plugins.toggleterm")
+		end,
+	})
+
+	use({
+		--"NTBBloodbath/zig-tools.nvim",
+		"tacogips/zig-tools.nvim",
+		ft = "zig",
+		config = function()
+			require("plugins.zig-tools")
+		end,
+		requires = {
+			{
+				"akinsho/toggleterm.nvim",
+				config = function()
+					require("toggleterm").setup()
+				end,
+			},
+			{
+				"nvim-lua/plenary.nvim",
+				module_pattern = "plenary.*",
+			},
+		},
+	})
 
 	-- ====== terraform ====
 	use("hashivim/vim-terraform")
-
-	-- ====== latext ====
-	-- error?
-	--use 'lervag/vimtex'
 
 	-- ====== graphql ====
 	use("jparise/vim-graphql")
@@ -167,13 +241,11 @@ require("packer").startup(function()
 	use("delphinus/vim-firestore")
 
 	--show color code in vim
-	use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
-
-	-- ====== julia ====
-	use("JuliaEditorSupport/julia-vim")
-	use("kdheepak/JuliaFormatter.vim")
+	-- slow
+	--use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
 
 	-- ====== css/postcss ====
+	-- TODO(tacogips) remove
 	use("alexlafroscia/postcss-syntax.vim")
 
 	-- ====== vtl (apache veclocity template)(AWS amplify graphql tempalte) ====
@@ -181,9 +253,6 @@ require("packer").startup(function()
 
 	-- ======= jinja2
 	use("Glench/Vim-Jinja2-Syntax")
-
-	-- ======= jump to github code
-	use({ "tacogips/jump_to_github.nvim", run = ":UpdateRemoteuseins" })
 
 	-- ======= draw rectangle with ascii char
 	use("jbyuki/venn.nvim")
@@ -210,6 +279,19 @@ require("packer").startup(function()
 		end,
 	})
 
+	-- === fennel/lua ==================
+	--TODO remove
+	--use("mnacamura/vim-fennel-syntax")
+	use({
+		"rktjmp/hotpot.nvim",
+		config = function()
+			require("plugins.hotpot")
+		end,
+	})
+	--use("jaawerth/fennel-nvim")
+	--use("Olical/aniseed")
+	--use("Olical/conjure")
+
 	-- === nim  ==============
 	use("alaviss/nim.nvim")
 
@@ -218,9 +300,40 @@ require("packer").startup(function()
 
 	-- === color scheme ==============================
 	use("cocopon/iceberg.vim")
+	use("folke/tokyonight.nvim")
+
+	use({
+		"tacogips/strdeco.nvim",
+		requires = { { "nvim-telescope/telescope.nvim" } },
+		config = function()
+			require("plugins.strdeco")
+		end,
+	})
+
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2", -- optional but strongly recommended
+		config = function()
+			require("plugins.hop")
+		end,
+	})
+
+	-- github copilot
+	use("github/copilot.vim")
+
+	-- move lang
+
+	use({
+		"rvmelkonian/move.vim",
+		config = function() end,
+	})
+
+	-- TODO use syntax of LS and remove this
+	use("tomlion/vim-solidity")
+
+	-- kdl setting file
+	use("imsnif/kdl.vim")
 end)
 
-require("plugins.ale")
 require("plugins.vim-go")
-require("plugins.vista")
 require("plugins.quickrun")

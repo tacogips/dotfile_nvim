@@ -2,13 +2,14 @@
 --- lua-language-server
 ---https://archlinux.org/packages/community/x86_64/lua-language-server/
 
-local name = "sumneko_lua"
+local lsp_util = require("plugins.lsp.lsp_util")
+local name = "lua_ls"
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require("lspconfig")[name].setup({
+lsp_util:setup_lsp(name, {
 	settings = {
 		Lua = {
 			runtime = {
@@ -32,4 +33,3 @@ require("lspconfig")[name].setup({
 		},
 	},
 })
-return name

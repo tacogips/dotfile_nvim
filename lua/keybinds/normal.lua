@@ -50,6 +50,8 @@ kmap.n("<C-l>", "<C-w>l")
 kmap.n("<C-h>", "<C-w>h")
 kmap.n("<C-k>", "<C-w>k")
 kmap.n("<C-j>", "<C-w>j")
+--- split
+kmap.n("<C-e>", ":vsplit<CR>")
 
 -- count line
 kmap.n("cl", ":%s/.//gn<CR>")

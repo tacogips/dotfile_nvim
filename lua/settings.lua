@@ -11,6 +11,7 @@ o.wildmode = "list:full" -- longest match
 o.history = 2000
 o.errorbells = false
 o.visualbell = true
+-- o.virtualedit = "all"
 o.title = true
 o.undofile = false
 o.backup = false
@@ -54,6 +55,8 @@ cmd([[colorscheme iceberg]])
 cmd([[syntax on]])
 
 cmd([[iabbrev todo TODO]])
+
+cmd([[set shada='2000,f1,<50]])
 
 -- remove trailing space on save
 cmd([[

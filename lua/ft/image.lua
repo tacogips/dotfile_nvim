@@ -5,6 +5,6 @@ cmd([[
 	autocmd BufNewFile,BufRead *.jpg setlocal filetype=jpeg
 	autocmd BufNewFile,BufRead *.jpeg setlocal filetype=jpeg
 
-	au FileType png,jpeg nmap <C-]> <ESC>:!feh '%:p'<CR>
+	au FileType png,jpeg nmap <C-]> <ESC>:!feh -R '%:p'<CR>
 
 ]])

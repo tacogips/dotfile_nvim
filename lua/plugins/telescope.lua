@@ -1,4 +1,6 @@
 local actions = require("telescope.actions")
+
+require("telescope").load_extension("aerial")
 require("telescope").setup({
 	defaults = {
 		prompt_prefix = " ❯ ",
@@ -19,19 +21,8 @@ require("telescope").setup({
 		},
 	},
 	extensions = {
-
-		frecency = {
-			--db_root = "home/my_username/path/to/db_root",
-			show_scores = true,
-			show_unindexed = true,
-			ignore_patterns = { "*.git/*", "*/tmp/*" },
-			disable_devicons = false,
-			workspaces = {
-				--["conf"] = "/home/my_username/.config",
-				--["data"] = "/home/my_username/.local/share",
-				--["project"] = "/home/my_username/projects",
-				--["wiki"] = "/home/my_username/wiki",
-			},
+		aerial = {
+			show_nesting = true,
 		},
 
 		fzf = {
@@ -74,13 +65,17 @@ require("telescope").setup({
 
 -- ===  keybinding =================
 local kmap = require("utils.keymap")
-kmap.n(
-	",b",
-	'<CMD>lua require("telescope").extensions.frecency.frecency({ sorter = require("telescope").extensions.fzf.native_fzf_sorter() })<Cr>'
-)
 
-kmap.n(",,", "<CMD>lua require'telescope.builtin'.git_files{}<Cr>")
+--kmap.n(",.", "<CMD>lua require'telescope.builtin'.find_files{}<Cr>")
+kmap.n(",.", "<CMD>lua require'telescope.builtin'.git_status{}<Cr>")
+kmap.n(",c", "<CMD>lua require'telescope.builtin'.git_commits{}<Cr>")
+kmap.n(",,", "<CMD>:Telescope oldfiles<Cr>")
+kmap.n(",b", "<CMD>lua require'telescope.builtin'.buffers{}<CR>")
+kmap.n(",f", "<CMD>lua require'telescope.builtin'.git_files{}<Cr>")
 kmap.n(",g", "<CMD>lua require'telescope.builtin'.live_grep{}<Cr>")
-kmap.n(",.", "<CMD>lua require'telescope.builtin'.find_files{}<Cr>")
 kmap.n(",l", "<CMD>lua require'telescope.builtin'.git_branches{}<Cr>")
-kmap.n(",r", "<CMD>lua require'telescope.builtin'.git_status{}<Cr>")
+kmap.n(",m", "<CMD>lua require'telescope.builtin'.marks{}<Cr>")
+kmap.n(",h", "<CMD>lua require'telescope.builtin'.command_history{}<Cr>")
+kmap.n(",k", "<CMD>lua require'telescope.builtin'.keymaps{}<Cr>")
+kmap.n(",z", "<CMD>lua require'telescope.builtin'.lsp_references{}<Cr>")
+kmap.n(",x", "<CMD>lua require'telescope.builtin'.lsp_implementations{}<Cr>")

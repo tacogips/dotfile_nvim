@@ -1,5 +1,6 @@
+local lsp_util = require("plugins.lsp.lsp_util")
 local name = "julials"
-require("lspconfig")[name].setup({})
+lsp_util:setup_lsp(name, {})
 
 -- require'lspconfig'.julials.setup{
 --     on_new_config = function(new_config,new_root_dir)
@@ -27,4 +28,3 @@ require("lspconfig")[name].setup({})
 -- }
 --
 --
-return name

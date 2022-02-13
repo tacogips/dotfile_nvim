@@ -1,32 +1,25 @@
+--- official language servers
 require("plugins.lsp.keybinds")
 
-local rust_ls = require("plugins.lsp.rust")
-local c_ls = require("plugins.lsp.c")
-local julia_ls = require("plugins.lsp.julia")
-local go_ls = require("plugins.lsp.go")
-local python_ls = require("plugins.lsp.python")
-local typescript_lsp = require("plugins.lsp.typescript")
-local lua_lsp = require("plugins.lsp.lua")
+require("plugins.lsp.rust")
+require("plugins.lsp.nix")
+require("plugins.lsp.c")
+require("plugins.lsp.julia")
+require("plugins.lsp.go")
+require("plugins.lsp.python")
+require("plugins.lsp.typescript")
+require("plugins.lsp.typescript_deno")
+require("plugins.lsp.lua")
+require("plugins.lsp.svelte")
+require("plugins.lsp.move")
+require("plugins.lsp.solidity")
+require("plugins.lsp.zig")
 
-local nvim_lsp = require("lspconfig")
-local servers = {
-	rust_ls,
-	c_ls,
-	julia_ls,
-	go_ls,
-	python_ls,
-	typescript_lsp,
-	lua_lsp,
-}
-
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
-		flags = {
-			debounce_text_changes = 150,
-		},
-
-		capabilities = capabilities,
-	})
+-- to keep rust-analyer from breaking the highlighting by tree-sitter
+-- the document at :h lsp-semantic-highlight
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+	vim.api.nvim_set_hl(0, group, {})
 end
+
+--- TODO custom language servers
+local move = require("plugins.lsp.move")
