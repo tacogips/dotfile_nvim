@@ -114,6 +114,7 @@ require("packer").startup(function()
 		end,
 	})
 
+	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 	-- ==== markdown ==============
 	use("tpope/vim-markdown")
 
