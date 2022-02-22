@@ -9,10 +9,10 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "filename" },
-		lualine_c = {},
+		lualine_b = {},
+		lualine_c = { { "filename", path = 2 } },
 		lualine_x = { "encoding", "fileformat" },
-		lualine_y = { "progress", "location" },
+		lualine_y = { "location" },
 		lualine_z = { "filetype", "branch", "diff", "diagnostics" },
 	},
 	inactive_sections = {

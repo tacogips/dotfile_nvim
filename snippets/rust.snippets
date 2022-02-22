@@ -34,10 +34,13 @@ snippet test "#[test]"
 	}
 
 snippet atest "#[test]"
-	#[tokio:test]
+	#[tokio::test]
 	async fn test_${1:func_name}(){
 	}
 
 
 snippet todo "//TODO(tacogips)"
 	//TODO(tacogips)
+
+snippet usehashm "use std::collections::HashMap"
+	use std::collections::HashMap;
