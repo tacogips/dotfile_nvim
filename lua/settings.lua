@@ -55,6 +55,8 @@ cmd([[syntax on]])
 
 cmd([[iabbrev todo TODO]])
 
+cmd([[set shada='2000,f1,<50]])
+
 -- remove trailing space on save
 cmd([[
 	autocmd BufWritePre * :%s/\s\+$//ge
