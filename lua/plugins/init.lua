@@ -216,6 +216,15 @@ require("packer").startup(function()
 
 	-- === color scheme ==============================
 	use("cocopon/iceberg.vim")
+
+	--use({ "/d/gits/ tacogips/dairi", run = "make install" })
+	use({
+		"tacogips/dairi",
+		run = "make install",
+		config = function()
+			require("plugins.dairi")
+		end,
+	})
 end)
 
 require("plugins.ale")
