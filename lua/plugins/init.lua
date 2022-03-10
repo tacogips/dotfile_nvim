@@ -65,7 +65,12 @@ require("packer").startup(function()
 	})
 
 	-- ==== tab =====================
-	use("liuchengxu/vista.vim")
+	use({
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("plugins.symbols-outline")
+		end,
+	})
 
 	-- error from 2022/1/5
 	--use 'millermedeiros/vim-esformatter'
@@ -229,5 +234,4 @@ end)
 
 require("plugins.ale")
 require("plugins.vim-go")
-require("plugins.vista")
 require("plugins.quickrun")
