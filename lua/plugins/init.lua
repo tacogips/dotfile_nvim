@@ -230,7 +230,12 @@ require("packer").startup(function()
 		end,
 	})
 
-	use({ "/d/gits/tacogips/strdeco" })
+	use({
+		"tacogips/strdeco.nvim",
+		config = function()
+			require("plugins.strdeco")
+		end,
+	})
 end)
 
 require("plugins.ale")
