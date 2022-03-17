@@ -237,6 +237,14 @@ require("packer").startup(function()
 			require("plugins.strdeco")
 		end,
 	})
+
+	use({
+		"phaazon/hop.nvim",
+		branch = "v1", -- optional but strongly recommended
+		config = function()
+			require("plugins.hop")
+		end,
+	})
 end)
 
 require("plugins.ale")
