@@ -153,6 +153,8 @@ require("packer").startup(function()
 
 	use("ron-rs/ron.vim")
 
+	use("thyrgle/vim-dyon")
+
 	-- ====== terraform ====
 	use("hashivim/vim-terraform")
 
