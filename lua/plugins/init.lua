@@ -111,6 +111,8 @@ require("packer").startup(function()
 		end,
 	})
 
+	use("f-person/git-blame.nvim")
+
 	-- ==== markdown ==============
 	use("tpope/vim-markdown")
 
@@ -252,3 +254,4 @@ end)
 require("plugins.ale")
 require("plugins.vim-go")
 require("plugins.quickrun")
+require("plugins.git-blame")

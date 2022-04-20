@@ -44,3 +44,10 @@ snippet todo "//TODO(tacogips)"
 
 snippet usehashm "use std::collections::HashMap"
 	use std::collections::HashMap;
+
+snippet display_impl "impl Display for ..."
+	impl fmt::Display for ${1:struct_name} {
+			fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+					write!(f, "{:?}", self)
+			}
+	}
