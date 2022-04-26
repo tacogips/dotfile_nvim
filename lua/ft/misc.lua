@@ -6,7 +6,7 @@ cmd([[
 	autocmd FileType html       noremap .f <ESC>:ALEFix<CR>
 	autocmd FileType css        noremap .f <ESC>:ALEFix<CR>
 	autocmd FileType pug        noremap .f <ESC>:ALEFix<CR>
-	
+
 	autocmd FileType vue        noremap .f <ESC>:ALEFix<CR>
 	autocmd FileType vue        noremap .t <ESC>:ALELint<CR>
 

@@ -64,6 +64,9 @@ require("packer").startup(function()
 		end,
 	})
 
+	--  === mermaid ===
+	use("mracos/mermaid.vim")
+
 	-- ==== tab =====================
 	use({
 		"simrat39/symbols-outline.nvim",

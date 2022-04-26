@@ -11,13 +11,9 @@ cmp.setup({
 			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
-	mapping = {
-		["<C-e>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
+	mapping = cmp.mapping.preset.insert({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-	},
+	}),
 	sources = cmp.config.sources({
 		{ name = "luasnip" },
 		{ name = "path" },
@@ -27,6 +23,7 @@ cmp.setup({
 })
 
 cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = "buffer" },
 	},
@@ -34,6 +31,7 @@ cmp.setup.cmdline("/", {
 
 --TODO(tacogips) this config hijacks default auto completion for commands
 cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
 
 		{ name = "path" },
