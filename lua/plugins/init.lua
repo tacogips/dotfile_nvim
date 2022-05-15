@@ -239,7 +239,7 @@ require("packer").startup(function()
 
 	use({
 		"tacogips/strdeco.nvim",
-		--"/d/gits/tacogips/strdeco.nvim",
+		requires = { { "nvim-telescope/telescope.nvim" } },
 		config = function()
 			require("plugins.strdeco")
 		end,

@@ -11,6 +11,7 @@ o.wildmode = "list:full" -- longest match
 o.history = 2000
 o.errorbells = false
 o.visualbell = true
+-- o.virtualedit = "all"
 o.title = true
 o.undofile = false
 o.backup = false
