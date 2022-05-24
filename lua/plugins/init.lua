@@ -28,14 +28,22 @@ require("packer").startup(function()
 	})
 
 	-- ======= syntax ===========================
-	--use({
-	--	"nvim-treesitter/nvim-treesitter",
-	--	run = ":TSUpdate",
-	--})
+	-- use({
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	run = ":TSUpdate",
+	-- })
 	-- ======= build in LSP ===========================
 
 	use("neovim/nvim-lspconfig")
 	use("nvim-lua/lsp_extensions.nvim")
+
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("null-ls")
+		end,
+		requires = { "nvim-lua/plenary.nvim" },
+	})
 
 	--==== plant uml ================
 	use("aklt/plantuml-syntax")
@@ -56,13 +64,23 @@ require("packer").startup(function()
 	})
 
 	--  === markdown ===
-	use({
-		"kannokanno/previm",
+	--	use({
+	--		"kannokanno/previm",
+	--
+	--		config = function()
+	--			require("plugins.previm")
+	--		end,
+	--	})
 
-		config = function()
-			require("plugins.previm")
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
 		end,
+		ft = { "markdown" },
 	})
+	-- use({ "ellisonleao/glow.nvim", branch = "main" })
 
 	--  === mermaid ===
 	use("mracos/mermaid.vim")
@@ -143,16 +161,21 @@ require("packer").startup(function()
 
 	use("dart-lang/dart-vim-plugin")
 
-	-- authomated ctags not needed
-	--use 'ludovicchabant/vim-gutentags'
-	--
-
 	--" ==== rust ===========================================
 	use("rust-lang/rust.vim")
 	use({
 		"simrat39/rust-tools.nvim",
 		config = function()
 			require("plugins.rust-tools")
+		end,
+	})
+
+	use({
+		"saecki/crates.nvim",
+		--event = { "BufRead Cargo.toml" },
+		requires = { { "nvim-lua/plenary.nvim" } },
+		config = function()
+			require("crates")
 		end,
 	})
 

@@ -3,8 +3,16 @@ snippet fn "Function definition"
 		${0}
 	}
 
+snippet useserde "use serde::{Serialize,Deserialize};"
+	use serde::{Serialize,Deserialize};
 
-snippet ddb "#[derive(Debug)]"
+snippet serderename "#[serde(rename_all="snake_case")]"
+	#[serde(rename_all="snake_case")]
+
+snippet serde "Serialize, Deserialize"
+	Serialize, Deserialize
+
+snippet derivedebug "#[derive(Debug)]"
 	#[derive(Debug)]
 
 snippet st "struct XXX{}"
@@ -45,9 +53,26 @@ snippet todo "//TODO(tacogips)"
 snippet usehashm "use std::collections::HashMap"
 	use std::collections::HashMap;
 
+
+snippet usethiserror "use thiserror::Error;"
+	use thiserror::Error;
+
+snippet thiserror "pub enum ThisError{}"
+	#[derive(Error, Debug)]
+	pub enum ${1:error_name} {
+			#[error("the error:{0}")]
+			Example(#[from] String),
+	}
+
+snippet typeresult "pub type Result<T> = std::result::Result<T, ThisError>;"
+	pub type Result<T> = std::result::Result<T, ThisError>;
+
 snippet display_impl "impl Display for ..."
 	impl fmt::Display for ${1:struct_name} {
 			fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
 					write!(f, "{:?}", self)
 			}
 	}
+
+
+
