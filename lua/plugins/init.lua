@@ -155,7 +155,7 @@ require("packer").startup(function()
 	--" typescript language server
 
 	-- ====== browse js ====
-	use({ "tacogips/browsejs.nvim", run = ":UpdateRemoteuseins" })
+	--use({ "tacogips/browsejs.nvim", run = ":UpdateRemoteuseins" })
 
 	use("w0ng/vim-hybrid")
 
@@ -203,7 +203,7 @@ require("packer").startup(function()
 	use("delphinus/vim-firestore")
 
 	--show color code in vim
-	use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
+	--use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
 
 	-- ====== julia ====
 	use("JuliaEditorSupport/julia-vim")
@@ -252,13 +252,13 @@ require("packer").startup(function()
 	-- === color scheme ==============================
 	use("cocopon/iceberg.vim")
 
-	use({
-		"tacogips/dairi",
-		run = "make install",
-		config = function()
-			require("plugins.dairi")
-		end,
-	})
+	--use({
+	--	"tacogips/dairi",
+	--	run = "make install",
+	--	config = function()
+	--		require("plugins.dairi")
+	--	end,
+	--})
 
 	use({
 		"tacogips/strdeco.nvim",
