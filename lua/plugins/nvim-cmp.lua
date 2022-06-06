@@ -16,6 +16,7 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "luasnip" },
+		{ name = "crates" },
 		{ name = "path" },
 	}, {
 		{ name = "buffer" },

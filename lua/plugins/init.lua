@@ -80,7 +80,7 @@ require("packer").startup(function()
 		end,
 		ft = { "markdown" },
 	})
-	-- use({ "ellisonleao/glow.nvim", branch = "main" })
+	use({ "ellisonleao/glow.nvim", branch = "main" })
 
 	--  === mermaid ===
 	use("mracos/mermaid.vim")
@@ -172,7 +172,7 @@ require("packer").startup(function()
 
 	use({
 		"saecki/crates.nvim",
-		--event = { "BufRead Cargo.toml" },
+		event = { "BufRead Cargo.toml" },
 		requires = { { "nvim-lua/plenary.nvim" } },
 		config = function()
 			require("crates")
