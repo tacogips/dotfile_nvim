@@ -203,7 +203,7 @@ require("packer").startup(function()
 	use("delphinus/vim-firestore")
 
 	--show color code in vim
-	--use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
+	use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
 
 	-- ====== julia ====
 	use("JuliaEditorSupport/julia-vim")
@@ -259,6 +259,13 @@ require("packer").startup(function()
 	--		require("plugins.dairi")
 	--	end,
 	--})
+	use({
+		"tacogips/run-jupyter.nvim",
+		run = "make build-dev",
+		config = function()
+			require("plugins.run-jupyter")
+		end,
+	})
 
 	use({
 		"tacogips/strdeco.nvim",
