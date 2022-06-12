@@ -259,13 +259,13 @@ require("packer").startup(function()
 	--		require("plugins.dairi")
 	--	end,
 	--})
-	use({
-		"tacogips/run-jupyter.nvim",
-		run = "make build-dev",
-		config = function()
-			require("plugins.run-jupyter")
-		end,
-	})
+	--use({
+	--	"tacogips/run-jupyter.nvim",
+	--	run = "make build-dev",
+	--	config = function()
+	--		require("plugins.run-jupyter")
+	--	end,
+	--})
 
 	use({
 		"tacogips/strdeco.nvim",
