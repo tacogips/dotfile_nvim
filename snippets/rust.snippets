@@ -12,9 +12,6 @@ snippet serderename "#[serde(rename_all="snake_case")]"
 snippet serde "Serialize, Deserialize"
 	Serialize, Deserialize
 
-snippet derivedebug "#[derive(Debug)]"
-	#[derive(Debug)]
-
 snippet st "struct XXX{}"
 	pub struct ${1:func_name}{
 	}
@@ -74,5 +71,13 @@ snippet display_impl "impl Display for ..."
 			}
 	}
 
+snippet ts ".to_string()"
+	.to_string()
+
+snippet #[dc "#[derive(Clone)]"
+	#[derive(Clone)]
+
+snippet #[dd "#[derive(Debug)]"
+	#[derive(Debug)]
 
 

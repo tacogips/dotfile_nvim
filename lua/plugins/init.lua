@@ -64,23 +64,23 @@ require("packer").startup(function()
 	})
 
 	--  === markdown ===
-	--	use({
-	--		"kannokanno/previm",
-	--
-	--		config = function()
-	--			require("plugins.previm")
-	--		end,
-	--	})
-
 	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
+		"kannokanno/previm",
+
+		config = function()
+			require("plugins.previm")
 		end,
-		ft = { "markdown" },
 	})
-	use({ "ellisonleao/glow.nvim", branch = "main" })
+
+	--use({
+	--	"iamcco/markdown-preview.nvim",
+	--	run = "cd app && npm install",
+	--	setup = function()
+	--		vim.g.mkdp_filetypes = { "markdown" }
+	--	end,
+	--	ft = { "markdown" },
+	--})
+	--use({ "ellisonleao/glow.nvim", branch = "main" })
 
 	--  === mermaid ===
 	use("mracos/mermaid.vim")
@@ -282,6 +282,8 @@ require("packer").startup(function()
 			require("plugins.hop")
 		end,
 	})
+
+	use("github/copilot.vim")
 end)
 
 require("plugins.ale")
