@@ -27,7 +27,7 @@ kmap.n("<Space>w", ":write<CR>") -- save
 kmap.n(".y", ":<C-u>!pwd <BAR> xclip -sel c<CR>")
 
 --  open current dir (on mac)
-kmap.n(".u", ":<C-u>!pwd <BAR> xargs open <CR>")
+--kmap.n(".u", ":<C-u>!pwd <BAR> xargs open <CR>")
 
 kmap.n("<Space><Space>", "i <Esc><Right>") -- insert a space
 kmap.n("<Space>j", "i<CR><ESC>") -- insert a new line

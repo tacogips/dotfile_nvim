@@ -63,8 +63,14 @@ require("packer").startup(function()
 		end,
 	})
 
-	--==== plant uml ================
-	use("aklt/plantuml-syntax")
+	--==== obsidian ================
+	use({
+		"epwalsh/obsidian.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("plugins.obsidian")
+		end,
+	})
 
 	--==== toml ================
 	use("cespare/vim-toml")
