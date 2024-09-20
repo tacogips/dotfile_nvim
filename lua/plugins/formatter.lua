@@ -159,7 +159,8 @@ require("formatter").setup({
 				return {
 					--exe = "alejandra",
 					-- nixpkgs-fmt seems compatible with nixpkgs
-					exe = "nixpkgs-fmt",
+					--exe = "nixpkgs-fmt",
+					exe = "nixfmt",
 					args = {},
 					stdin = true,
 				}
