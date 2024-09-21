@@ -36,7 +36,7 @@ cmd([[
 	au FileType markdown nmap ,j <ESC>:ObsidianQuickSwitch<CR>
 	au FileType markdown nmap ,s <ESC>:ObsidianSearch<CR>
 	au FileType markdown nmap ,t <ESC>:ObsidianToday<CR>
-	au FileType markdown nmap ,e <ESC>:ObsidianTags<CR>
+	au FileType markdown nmap ,` <ESC>:ObsidianTags<CR>
 	au FileType markdown nmap ,r <ESC>:ObsidianBacklinks<CR>
 	au FileType markdown nmap ,o <ESC>:ObsidianOpen<CR>
 
