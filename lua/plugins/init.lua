@@ -148,6 +148,14 @@ require("packer").startup(function()
 	})
 
 	use({
+		"tacogips/cereb.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("plugins.cereb")
+		end,
+	})
+
+	use({
 		"f-person/git-blame.nvim",
 		config = function()
 			require("plugins.git-blame")
