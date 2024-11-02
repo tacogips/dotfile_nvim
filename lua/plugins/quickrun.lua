@@ -6,6 +6,11 @@ let g:quickrun_config = {
 			\ 	  'command': 'julia',
 			\ 	  'exec':'%c --project %s'
 			\ 	},
+			\ 	'typescript' : {
+			\ 	  'command': 'bun',
+			\ 	  'exec':'%s',
+      \     'hook/cd/directory': '%S:p:h'
+			\ 	}
 			\	}
 	]])
 

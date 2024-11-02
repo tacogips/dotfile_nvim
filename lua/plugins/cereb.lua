@@ -6,6 +6,8 @@ cmd([[
 	au FileType * nmap ,p <ESC>:CerebCurrentLineMd<CR>
 	au FileType * vmap ,p :CerebSelMd<CR>
 	au FileType * nmap ,; :CerebPageMdWithQuery<CR>
+	au FileType * vmap ,; :CerebSelMdWithQuery<CR>
+
 	au FileType * nmap ,] :CerebPageMd<CR>
 
 ]])
