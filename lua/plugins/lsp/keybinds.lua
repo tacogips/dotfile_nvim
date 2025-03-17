@@ -1,7 +1,9 @@
 local kmap = require("utils.keymap")
 
-kmap.n("<C-\\>", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+
 kmap.n("<C-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>")
+
+kmap.n("<C-\\>", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 kmap.n("<C-n>", "<Cmd>lua vim.lsp.buf.hover()<CR>")
 -- use ",x",",z" which calls telescope buildin.lsp instead
 --kmap.n(".x", "<Cmd>lua vim.lsp.buf.implementation()<CR>")
